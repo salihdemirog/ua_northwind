@@ -7,6 +7,7 @@ import { PrimengModule } from './shared/primeng/primeng.module';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductService } from './services/product.service';
+import { CategoryModule } from './pages/category/category.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,12 @@ import { ProductService } from './services/product.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PrimengModule
+    PrimengModule,
+    CategoryModule
   ],
-  providers: [],
+  // providers: [
+  //   ProductService
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

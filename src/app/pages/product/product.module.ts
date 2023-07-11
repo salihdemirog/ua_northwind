@@ -15,6 +15,9 @@ import { ProductService } from 'src/app/services/product.service';
   imports: [
     CommonModule,
     ProductRoutingModule
-  ]
+  ],
+  // providers:[
+  //   ProductService
+  // ]
 })
 export class ProductModule { }

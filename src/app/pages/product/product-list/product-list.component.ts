@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Self, Optional, SkipSelf, Host } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -8,10 +8,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(private productService: ProductService) {}
+  constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts();
+      this.productService?.getProducts();
   }
 
 }
