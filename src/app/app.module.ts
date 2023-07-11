@@ -8,18 +8,21 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductService } from './services/product.service';
 import { CategoryModule } from './pages/category/category.module';
+import { HttpClientModule } from '@angular/common/http';
+import { TruncatePipe } from './shared/core/truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PrimengModule,
-    CategoryModule
+    CategoryModule,
+    HttpClientModule
   ],
   // providers: [
   //   ProductService

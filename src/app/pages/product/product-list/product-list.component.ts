@@ -1,4 +1,6 @@
+import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit, Self, Optional, SkipSelf, Host } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -8,10 +10,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(public productService: ProductService) { }
+  products:Product[]=[];
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-      this.productService?.getProducts();
+
+    console.log("product basladi");
+    this.productService?.getProducts().subscribe(data=>{
+      this.products=data;
+    });
+
+    console.log("product bitti");
   }
 
 }
