@@ -8,9 +8,6 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
   declarations: [],
   imports: [
     CommonModule,
-    MessagesModule,
-    ToastModule,
-    ConfirmDialogModule
   ],
   exports: [
     MessagesModule,

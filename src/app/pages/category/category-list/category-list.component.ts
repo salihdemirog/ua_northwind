@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -10,6 +10,10 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryListComponent implements OnInit {
 
+  @Input() title:string='';
+  @Input() title2:string='';
+  @Input() title3:string='';
+  
   categories: Category[] = [];
 
   constructor(private categoryService: CategoryService) { }
