@@ -13,6 +13,10 @@ const routes: Routes = [
         component: ProductListComponent
       },
       {
+        path: 'list/:categoryId',
+        component: ProductListComponent
+      },
+      {
         path: '**',
         component: ProductListComponent
       }

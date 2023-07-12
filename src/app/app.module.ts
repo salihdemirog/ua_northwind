@@ -24,9 +24,12 @@ import { TruncatePipe } from './shared/core/truncate.pipe';
     CategoryModule,
     HttpClientModule
   ],
-  // providers: [
-  //   ProductService
-  // ],
+  providers: [
+    // {
+    //   provide:'ApiUrl',
+    //   useValue:'http://localhost:3000/'
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

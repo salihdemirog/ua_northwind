@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit, Self, Optional, SkipSelf, Host } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-list',
@@ -10,18 +12,28 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products:Product[]=[];
+  products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    console.log("product basladi");
-    this.productService?.getProducts().subscribe(data=>{
-      this.products=data;
-    });
+    console.log(environment.apiUrl);
 
-    console.log("product bitti");
+    // let categoryId = this.route.snapshot.paramMap.get('categoryId');
+    // this.getProducts(categoryId);
+    this.route.params.subscribe(param=>{
+      let categoryId = param["categoryId"];
+      this.getProducts(categoryId);
+    });
+    
+  }
+
+  getProducts(categoryId:any) {
+    this.productService.getProducts(categoryId).subscribe(data => {
+      this.products = data;
+    });
   }
 
 }
