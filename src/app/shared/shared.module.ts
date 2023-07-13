@@ -5,6 +5,7 @@ import { ColorDirective } from './core/directives/color.directive';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     TruncatePipe,
     ColorDirective,
     TranslateModule
+  ],
+  providers:[
+    MessageService,
+    ConfirmationService
   ]
 })
 export class SharedModule { }

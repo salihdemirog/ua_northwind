@@ -3,6 +3,7 @@ import { Component, OnInit, Self, Optional, SkipSelf, Host } from '@angular/core
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
+import { EventService } from 'src/app/services/event.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 
@@ -18,7 +19,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private eventService:EventService) { }
 
   ngOnInit(): void {
 
@@ -43,7 +45,9 @@ export class ProductListComponent implements OnInit {
     this.cartService.add({
       product: product,
       quantity: 1
-    })
+    });
+
+    this.eventService.notify('addToCart',product);
   }
 
 }

@@ -16,6 +16,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CartModule } from './pages/cart/cart.module';
+import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -27,6 +28,7 @@ export function createTranslateLoader(http: HttpClient) {
     MainLayoutComponent,
     DashboardComponent,
     MenuComponent,
+    EmptyLayoutComponent
   ],
   imports: [
     BrowserModule,
