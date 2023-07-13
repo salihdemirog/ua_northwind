@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengModule } from './shared/primeng/primeng.module';
@@ -8,7 +8,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductService } from './services/product.service';
 import { CategoryModule } from './pages/category/category.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { TruncatePipe } from './shared/core/truncate.pipe';
 import { ColorDirective } from './shared/core/directives/color.directive';
 import { MenuComponent } from './layouts/menu/menu.component';
@@ -17,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CartModule } from './pages/cart/cart.module';
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
+import { JwtTokenInterceptor } from './shared/core/interceptors/jwt-token.interceptor';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +33,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     PrimengModule,
     CategoryModule,
@@ -52,6 +54,11 @@ export function createTranslateLoader(http: HttpClient) {
     //   provide:'ApiUrl',
     //   useValue:'http://localhost:3000/'
     // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtTokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
