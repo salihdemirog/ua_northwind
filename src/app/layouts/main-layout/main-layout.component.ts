@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
 
-  searched(ev:any){
+  searched(ev:string){
+
+    if(ev.includes('script'))
+      throw new Error("Aranmak istenen ifade hatalıdır");
+      
     alert(ev);
   }
 }
