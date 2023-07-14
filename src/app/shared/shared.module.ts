@@ -12,6 +12,9 @@ import { UaCoreModule } from 'ua-core';
   imports: [
     CommonModule,
     HttpClientModule,
+    UaCoreModule.forRoot({
+      appName:'Ulusal Ajans App'
+    })
   ],
   exports:[
     TranslateModule,
