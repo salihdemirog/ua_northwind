@@ -4,7 +4,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
-import { authCanActivatedGuardFn, authCanMatchGuard } from './shared/core/guards/auth.guard';
+import { authCanActivatedGuardFn, authCanMatchGuard } from 'ua-core';
 
 const routes: Routes = [
   {
