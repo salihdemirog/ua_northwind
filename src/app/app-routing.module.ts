@@ -24,12 +24,17 @@ const routes: Routes = [
         path: 'product',
         loadChildren: () => import('./pages/product/product.module').then(t => t.ProductModule)
       },
+      {
+        path: 'mfe1',
+        loadChildren: () => import('mfe1/Module').then(t => t.MfeModule)
+      },
     ]
   },
   {
     path: '',
     component: EmptyLayoutComponent,
     children: [
+
       {
         path: 'account',
         loadChildren: () => import('./pages/account/account.module').then(t => t.AccountModule)
