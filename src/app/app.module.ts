@@ -9,15 +9,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductService } from './services/product.service';
 import { CategoryModule } from './pages/category/category.module';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { ColorDirective } from './shared/core/directives/color.directive';
 import { MenuComponent } from './layouts/menu/menu.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CartModule } from './pages/cart/cart.module';
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
-import { JwtTokenInterceptor } from './shared/core/interceptors/jwt-token.interceptor';
-import { GlobalErrorHandler } from './shared/core/handler/global-error-handler';
+import { JwtTokenInterceptor } from 'ua-core';
+import { GlobalErrorHandler } from 'ua-core';
 import { MessageService } from 'primeng/api';
 
 export function createTranslateLoader(http: HttpClient) {
