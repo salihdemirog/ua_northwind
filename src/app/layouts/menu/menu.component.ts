@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from 'src/app/models/user.model';
-import { AuthService } from 'src/app/shared/core/services/auth.service';
+import { User } from 'ua-core';
+import { AuthService } from 'ua-core';
 
 @Component({
   selector: 'app-menu',

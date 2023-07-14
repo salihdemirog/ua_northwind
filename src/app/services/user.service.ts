@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { LoginModel } from '../models/login.model';
 import { Observable, map, tap } from 'rxjs';
-import { User } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
